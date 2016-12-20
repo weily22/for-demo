@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>for in</title>
+  <style>
+    html,body,h3{
+      margin:0;
+      padding:0;
+    }
+    h3{
+      text-align: center;
+      margin-top:20%;
+    }
+  </style>
+</head>
+<body>
+  <h3>运行结果在控制台</h3>
+  <script>
+    // 遍历属性
+    console.group('遍历属性')
+    const obj = {
+      a: 'aa',
+      b: 'bb',
+      c: 'cc'
+    }
+    let k;
+    for (k in obj) {
+      console.log('obj[' + k + ']', obj[k])
+    }
+    console.groupEnd()
+
+    // 遍历数组
+    console.group('遍历数组')
+    const arr = [1, 2, 3]
+    let i;
+    for (i in arr) {
+      console.log('arr[' + i + ']', arr[i])
+    }
+    console.groupEnd()
+
+    // 添加自定义属性后的数组
+    console.group('添加自定义属性后的数组')
+    const arrTwo = [1, 2, 3]
+    arrTwo.name = 'wei';
+    arrTwo.age = '3';
+    let j;
+    for (j in arrTwo) {
+      console.log('arrTwo[' + j + ']', arrTwo[j])
+    }
+    console.groupEnd()
+
+    // 遍历其原型链上的数组属性
+    console.group('遍历其原型链上的数组属性')
+    const arrThree = [1, 2, 3]
+    Array.prototype.name = 'parent';
+    let l;
+    for (l in arrThree) {
+      console.log('arrThree[' + l + ']', arrThree[l])
+    }
+    console.groupEnd()
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>forEach</title>
+  <style>
+    html,body,h3{
+      margin:0;
+      padding:0;
+    }
+    h3{
+      text-align: center;
+      margin-top:20%;
+    }
+  </style>
+</head>
+<body>
+  <h3>运行结果在控制台</h3>
+  <script>
+    const arr = [1, 2, 3];
+    arr.name = 'name';
+    arr[4] = '4';
+    // 在forEach内部添加的arr[5]，访问不到
+    arr.forEach((item, index, self) => {
+      // arr[5] = '5'
+      console.log(item, typeof index, self);
+    })
+
+    //every
+    console.log('')
+    console.log('every 循环在第一次return false 后返回')
+    arr.every((item, index, self) => {
+      console.log(item, typeof index, self);
+    })
+
+    //some
+    console.log('')
+    console.log('some 循环在第一次return true 后返回')
+    arr.some((item, index, self) => {
+      console.log(item, typeof index, self);
+    })
+
+    //map
+    console.log('')
+    console.log('map 将原数组中的元素处理后再返回')
+    arr.map((item, index, self) => {
+      console.log(item, typeof index, self);
+    })
+    //map
+    // console.log('')
+    // console.log('reduce 对数组中的元素依次处理，将上次处理结果作为下次处理的输入，最后得到最终结果')
+    // arr.reduce((item, index, self) => {
+    //   console.log(item, typeof index, self);
+    // })
+  </script>
+</body>
+</html>
